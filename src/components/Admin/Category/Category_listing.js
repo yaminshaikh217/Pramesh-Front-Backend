@@ -36,7 +36,6 @@ class Category_listing extends React.Component
         }
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
         this.setState({ category: data.data });
     }
 
@@ -93,6 +92,7 @@ class Category_listing extends React.Component
     render()
     {
         var categorys = this.state.category;
+        console.log(categorys);
         return(
             <>
                 <Sidebar />
@@ -135,8 +135,8 @@ class Category_listing extends React.Component
                                                     (
                                                         <tr>
                                                             <th>{index+1}</th>
-                                                            <td><Link to='/admin/subcategory/listing'><img className="h-101 w-101" src={cat.vImage} /></Link></td>
-                                                            <td><Link to='/admin/subcategory/listing'>{cat.vTitle}</Link></td>
+                                                            <td><Link to={`/admin/subcategory/listing/${cat.iCategoryId}`}><img className="h-101 w-101" src={cat.vImage} /></Link></td>
+                                                            <td><Link to={`/admin/subcategory/listing/${cat.iCategoryId}`}>{cat.vTitle}</Link></td>
                                                             <td>{cat.dtAddedDate}</td>
                                                             <td>{cat.eStatus}</td>
                                                             <td>{

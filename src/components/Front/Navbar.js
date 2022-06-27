@@ -50,8 +50,6 @@ const Navbar = () => {
     }
   };
 
-
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 10) {
       setstick(true);
@@ -159,8 +157,7 @@ const Navbar = () => {
   }
   const mainNavbar = async () => {
     // ***************HEADER***************
-    const headerdata = await axios.get(header).catch((err) => {
-    });
+    const headerdata = await axios.get(header).catch((err) => {});
     if (headerdata.data.data) {
       dispatch(setMainheader(headerdata.data.data));
       dispatch(setAllfabric(headerdata.data.fabric));
@@ -573,7 +570,6 @@ const Navbar = () => {
                       <h2>{addtoct.vProductName}</h2>
                       {addtoct.vSize != "" ? (
                         <p>
-                          
                           SIZE : <span>{addtoct.vSize}</span>
                         </p>
                       ) : (
