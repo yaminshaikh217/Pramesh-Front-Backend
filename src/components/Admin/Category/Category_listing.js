@@ -92,7 +92,6 @@ class Category_listing extends React.Component
     render()
     {
         var categorys = this.state.category;
-        console.log(categorys);
         return(
             <>
                 <Sidebar />
@@ -180,4 +179,4 @@ class Category_listing extends React.Component
     }
 
 }
-export default Category_listing; 
+export default Category_listing;
