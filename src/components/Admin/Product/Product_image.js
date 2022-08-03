@@ -38,7 +38,7 @@ const Product_image = () => {
         const dataa = axios
             .post(urlimage, fd)
             .then((res) => {
-                console.log(res.data.Status);
+                
                 if (res.data.Status == "0") {
                     toast.success(res.data.message, {
                         position: "top-center",
@@ -152,11 +152,11 @@ const Product_image = () => {
                 setImage(res.data.Image);
             })
             .catch((err) => {
-                console.log(err);
+                
             });
     }, []);
 
-    console.log("jkjkjkjk",Image);
+    
     return (
         <>
             <Sidebar />

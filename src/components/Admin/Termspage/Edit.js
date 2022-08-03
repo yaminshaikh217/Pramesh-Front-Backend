@@ -138,7 +138,7 @@ function Edit() {
                 setTermsConditionEdit(res.data.tTermsCondition);
             })
             .catch(err => {
-                console.log(err);
+                
             })
     }, [])
   

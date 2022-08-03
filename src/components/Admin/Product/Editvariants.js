@@ -21,7 +21,7 @@ const Editvariants = (props) =>
     }
     
 
-    console.log(Variants);
+    
 
         return (
             <>

@@ -96,7 +96,7 @@ const Subcategoryadd = () => {
                 setArrayVariants(res.data.data);
             })
             .catch(err => {
-                console.log(err);
+                
             })
     }, [])
     

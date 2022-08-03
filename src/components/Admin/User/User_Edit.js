@@ -132,7 +132,7 @@ const User_Edit = () =>
                 setStatus(res.data.data.eStatus)
             })
             .catch(err => {
-                console.log(err);
+                
             })
     }, [])
 

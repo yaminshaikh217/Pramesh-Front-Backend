@@ -90,7 +90,7 @@ const News_Edit = () => {
              
             })
             .catch(err => {
-                console.log(err);
+                
             })
 
     }, [])

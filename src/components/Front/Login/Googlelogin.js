@@ -71,7 +71,7 @@ function Logindata() {
     };
 
     const onLoginFailure = (res) => {
-        console.log('Login Failed:', res);
+        // console.log('Login Failed:', res);
     };
 
 

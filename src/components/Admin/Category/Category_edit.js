@@ -107,14 +107,14 @@ const Category_edit = () => {
     useEffect(()=>{
         axios.get(urls)
         .then(res=>{
-            console.log(res.data.data);
+            
             setTitle(res.data.data.vTitle);
             setImage(res.data.data.vImage)
             setProductType(res.data.data.vProductType);
             setStatus(res.data.data.eStatus)
         })
         .catch(err =>{
-            console.log(err);
+            
         })
         
     },[])

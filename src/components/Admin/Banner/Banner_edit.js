@@ -56,7 +56,7 @@ const Banner_edit = () => {
 
         var answer = window.location.href;
         const answer_array = answer.split('/');
-        console.log(answer_array);
+        
 
         if (answer_array[2] == 'localhost:3000') {
             var url = 'http://localhost/pramesh/backend/api/banner_add';
@@ -127,7 +127,7 @@ const Banner_edit = () => {
     useEffect(()=>{
         axios.get(urls)
         .then(res=>{
-            console.log(res.data.data);
+            
             setTitle(res.data.data.vTitle);
             setImage(res.data.data.vImage);
             setOrder(res.data.data.iOrder);
@@ -139,7 +139,7 @@ const Banner_edit = () => {
           
         })
         .catch(err =>{
-            console.log(err);
+            
         })
         
     },[])

@@ -35,7 +35,7 @@ const Useradd = () =>
   {
     setEmail(e.target.value);
 
-    console.log(e.target.value);
+    
     validateEmail();
   }
 
@@ -125,7 +125,7 @@ const Useradd = () =>
         var errormsg = true;
       }
 
-    console.log(errormsg);
+    
     
     if (errormsg == false)
     {

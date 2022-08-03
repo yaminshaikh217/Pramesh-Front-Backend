@@ -55,7 +55,7 @@ class Banner_listing extends React.Component {
 
         var iContentId = e.target.id;
 
-        console.log(iContentId);
+        
 
         const fd = new FormData();
         fd.append('iContentId', iContentId);

@@ -187,7 +187,7 @@ const Product_edit = () => {
             const result = await axios.get(urls);
             setSubCategory(result.data.data);
         } catch (e) {
-            console.log("error response", e.response);
+            
         }
     }
 
@@ -218,7 +218,7 @@ const Product_edit = () => {
                 setProduct_variantid(res.data.product_variant[0].iVariantId);
             })
             .catch((err) => {
-                console.log(err);
+                
             });
     }, []);
 
@@ -237,7 +237,7 @@ const Product_edit = () => {
                 setFabric(res.data.fabric);
             })
             .catch((err) => {
-                console.log(err);
+                
             });
     }, []);
     

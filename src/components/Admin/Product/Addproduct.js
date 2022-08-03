@@ -194,7 +194,7 @@ const Addproduct = () => {
             setSubCategory(result.data.data);
         }
         catch (e) {
-            console.log("error response", e.response);
+            
         }
 
     }
@@ -216,7 +216,7 @@ const Addproduct = () => {
                 setFabric(res.data.fabric);
             })
             .catch(err => {
-                console.log(err);
+                
             })
     }, []);
 

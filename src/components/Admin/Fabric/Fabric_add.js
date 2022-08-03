@@ -105,11 +105,11 @@ const Fabric_add = () => {
     useEffect(() => {
         axios.get(urls)
             .then(res => {
-                // console.log(res.data.data);
+                
                 setCategory(res.data.data);
             })
             .catch(err => {
-                console.log(err);
+                
             })
     }, [])
 

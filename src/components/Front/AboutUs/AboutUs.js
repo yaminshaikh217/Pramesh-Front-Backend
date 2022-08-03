@@ -20,7 +20,7 @@ const AboutUs = () =>
 
   const mainNavbar = async () => {
     const termsdata = await axios.get(url).catch((err) => {
-      console.log("error", err);
+      
     });
 
     if (termsdata.data.data) 

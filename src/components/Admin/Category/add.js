@@ -41,7 +41,7 @@ const Categoryadd = () => {
        
         var answer = window.location.href;
         const answer_array = answer.split('/');
-        console.log(answer_array);
+        
 
         if (answer_array[2] == 'localhost:3000') {
             var url = 'http://localhost/pramesh/backend/api/category_add';

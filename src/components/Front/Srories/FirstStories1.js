@@ -20,7 +20,7 @@ const FirstStories = () =>
 
     const mainNavbar = async () => {
         const Firstpage_data = await axios.get(url).catch((err) => {
-            console.log("error", err);
+            
         });
 
         if (Firstpage_data.data.data) {
@@ -33,7 +33,7 @@ const FirstStories = () =>
         mainNavbar();
     }, []);
 
-    console.log("jayesh    ",FirstPageImage);
+    
     return (
         <>
             <Navbar />

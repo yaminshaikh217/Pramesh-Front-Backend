@@ -55,14 +55,14 @@ const Product_listing = () => {
 
     const mainNavbar = async () => {
         const productdata = await axios.get(product_listing).catch((err) => {
-            console.log("error", err);
+            
         });
         if (productdata.data.data) {
             dispatch(setProductListing(productdata.data.data));
         }
         // *************************COLOR DATA GET***********************
         const colordata = await axios.get(Color).catch((err) => {
-            console.log("error", err);
+            
         });
         if (colordata.data.color) {
             setColorArray(colordata.data.color);
@@ -89,7 +89,7 @@ const Product_listing = () => {
         }
 
         const productdata = await axios.get(product_listing);
-        // console.log(data);
+        
         if (productdata.data.data) {
             dispatch(setProductListing(productdata.data.data));
         }

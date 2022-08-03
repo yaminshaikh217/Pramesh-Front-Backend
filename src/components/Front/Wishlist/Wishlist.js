@@ -73,7 +73,7 @@ const Wishlist = () => {
             </div>
 
             <div className={`order ${order ? "" : "d-none"} `}>
-                {" "}
+                
                 <h1>ORDERS HERE</h1>
             </div>
 
@@ -140,35 +140,35 @@ const Wishlist = () => {
             <div className={`address my-4 ${address ? "" : "d-none"} `}>
                 <div className=" row justify-content-center">
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="First Name" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="Last Name" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="Phone Number" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="Zip/Postal Code" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="State" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="Street Address" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="City" />
                     </div>
                     <div className="col-4 mr-2">
-                        {" "}
+                        
                         <input type="text" placeholder="Country" />
                     </div>
                     <div className="col-8 mr-2">

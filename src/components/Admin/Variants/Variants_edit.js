@@ -81,12 +81,12 @@ const Variants_edit = () => {
     useEffect(()=>{
         axios.get(urls)
         .then(res=>{
-            console.log(res);
+            
             setTitle(res.data.data.vLabel);
             setStatus(res.data.data.eStatus)
         })
         .catch(err =>{
-            console.log(err);
+            
         })
         
     },[])

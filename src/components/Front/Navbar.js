@@ -262,7 +262,7 @@ const Navbar = () => {
 
   const mainproductdata = async () => {
     const maindata = await axios.get(url).catch((err) => {
-      console.log("error", err);
+      
     });
     if (maindata.data.data) {
       dispatch(setMainproductdata(maindata.data.data));

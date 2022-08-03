@@ -41,7 +41,7 @@ const Stories_edit = () => {
 
     let images = [];
     const handleChangeStatus = ({ meta }, status) => {
-        // console.log(meta.name);
+        
         images.push(meta.name);
     }
     // *********************************************************DATA ADDED************************************
@@ -201,7 +201,7 @@ const Stories_edit = () => {
     useEffect(() => {
         axios.get(urls)
             .then(res => {
-                console.log(res);
+                
                 setVStories1_image(res.data.data.vStories1_image);
                 setvStories1_Title(res.data.data.vStories1_Title);
                 setvStories1_Desc(res.data.data.vStories1_Desc);
@@ -221,7 +221,7 @@ const Stories_edit = () => {
                 
             })
             .catch(err => {
-                console.log(err);
+                
             })
 
     }, [])

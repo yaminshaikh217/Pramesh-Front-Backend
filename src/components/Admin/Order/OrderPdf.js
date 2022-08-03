@@ -50,7 +50,7 @@ const OrderPdf = () => {
                 setEmail(res.data.User.vEmail);
             })
             .catch((err) => {
-                console.log(err);
+                
             });
     }, []);
 

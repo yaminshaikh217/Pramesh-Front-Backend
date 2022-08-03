@@ -83,7 +83,7 @@ const OrderNote = () => {
 
             })
             .catch(err => {
-                console.log(err);
+                
             })
 
     }, [])

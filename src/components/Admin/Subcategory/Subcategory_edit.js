@@ -116,7 +116,7 @@ const Subcategory_edit = () => {
     useEffect(()=>{
         axios.get(urls)
         .then(res=>{
-            console.log(res.data.data);
+            
             setTitle(res.data.data.vTitle);
             setSubTitle(res.data.data.vSubTitle);
             setStatus(res.data.data.eStatus);
@@ -127,7 +127,7 @@ const Subcategory_edit = () => {
             setFabricArray(res.data.fabric);
         })
         .catch(err =>{
-            console.log(err);
+            
         })
         
     },[])

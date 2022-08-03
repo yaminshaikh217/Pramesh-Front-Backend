@@ -93,7 +93,7 @@ const Color_Edit = () => {
              
             })
             .catch(err => {
-                console.log(err);
+                
             })
 
     }, [])

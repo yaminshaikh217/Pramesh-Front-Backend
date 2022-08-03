@@ -124,7 +124,7 @@ const Viewcart = () => {
         .then((res) => {
           if (res.data.Status == "0") 
           {
-              // console.log(res.data.subtotal);
+              
 
               dispatch(setAddtocartsavedata(res.data.data));
               dispatch(setAddtocartsubtotal(res.data.subtotal));

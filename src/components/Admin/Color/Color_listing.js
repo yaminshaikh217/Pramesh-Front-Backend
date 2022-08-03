@@ -34,7 +34,7 @@ class Color_listing extends React.Component {
         }
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        
         this.setState({ color: data.data });
     }
 

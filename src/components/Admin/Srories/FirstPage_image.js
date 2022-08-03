@@ -77,7 +77,7 @@ const FirstPage_image = () => {
         const dataa = axios
             .post(deleteimage, fd)
             .then((res) => {
-                console.log(res.data.Status);
+                
                 if (res.data.Status == "0") {
                     toast.success(res.data.message, {
                         position: "top-center",
@@ -153,7 +153,7 @@ const FirstPage_image = () => {
                 setImage(res.data.data);
             })
             .catch((err) => {
-                console.log(err);
+                
             });
     }, []);
     

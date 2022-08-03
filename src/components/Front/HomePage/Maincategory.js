@@ -18,7 +18,7 @@ const Maincategory = () => {
     const mainproductdata = async () => {
         // ****************iamge****************
         const imagedata = await axios.get(urls).catch((err) => {
-            console.log("error", err);
+            
         });
         if (imagedata.data.data) {
             dispatch(setMainproductimage(imagedata.data.data));

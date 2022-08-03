@@ -203,7 +203,7 @@ const Addtocart = () => {
     fd.append("vSize", Size);
     fd.append("iUserId", iUserId);
     
-    console.log(Addqty);
+    
     if (Size || sizedata == '0')
     {
       if (Addqty != '0') 
