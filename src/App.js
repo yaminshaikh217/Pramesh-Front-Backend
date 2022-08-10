@@ -490,7 +490,7 @@ class App extends React.Component {
               component={LazyProductImage}
             />
 
-            {/* *********************************CATEGORY COMPONENT************************************ */}
+            {/* **********************************CATEGORY COMPONENT************************************ */}
 
             <Route
               exact
@@ -512,7 +512,7 @@ class App extends React.Component {
 
             <Route
               exact
-              path="/admin/subcategory/listing"
+              path="/admin/subcategory/listing/:id"
               component={LazySubcategory_listing}
             />
             <Route

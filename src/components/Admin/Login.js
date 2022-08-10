@@ -12,6 +12,7 @@ const Login = () => {
     const [Password, setPassword] = useState("");
     const [Message, setMessage] = useState("");
     const [name, setName] = useState("");
+    const [disable, setdisable] = useState(false)
 
     let history = useHistory();
 
@@ -38,7 +39,9 @@ const Login = () => {
         const dataa = axios
             .post(url, fd)
             .then((res) => {
+                setdisable(true)
                 if (res.data.estatus == "0") {
+                    setdisable(true)
                     var now = new Date().getTime();
                     localStorage.setItem("iAdminId", res.data.iAdminId);
                     localStorage.setItem("vUserName", res.data.vUserName);
@@ -59,6 +62,7 @@ const Login = () => {
                         // window.location.reload(1);
                     }, 2000);
                 } else {
+                    setdisable(false)
                     toast.error(res.data.message, {
                         position: "top-center",
                         autoClose: 5000,
@@ -113,7 +117,7 @@ const Login = () => {
                             <a
                                 href="javascript:;"
                                 onClick={login}
-                                className="btn btn-danger btn-md mt-4"
+                                className={`btn btn-danger btn-md mt-4 ${disable ? "disabled" : ""}`}
                             >
                                 login <i className="fa fa-sign-in"></i>
                             </a>

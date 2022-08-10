@@ -627,3 +627,8 @@ footer.footer {
 .invoice_head_div p {
   font-size: 0.8rem;
 }
+.btn.disabled {
+  user-select: none !important;
+  pointer-events: none !important;
+  
+}

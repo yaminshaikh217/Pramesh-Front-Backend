@@ -4,6 +4,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 import { Fab } from "@material-ui/core";
 const $ = require("jquery");
@@ -50,8 +51,24 @@ class Fabric_listing extends React.Component {
     const fd = new FormData();
     fd.append("iFabricId", iFabricId);
     if (iFabricId != "undefined") {
-      const dataa = axios
-        .post(del, fd)
+      const dataa = axios.post(del, fd);
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      })
+        .then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Your record has been deleted.", "success");
+            setTimeout(() => {
+              window.location.reload(1);
+            }, 1000);
+          }
+        })
         .then((res) => {
           if (res.data.Status == "0") {
             toast.success(res.data.message, {
@@ -125,8 +142,8 @@ class Fabric_listing extends React.Component {
                         {fabrics.map((fab, index) => (
                           <tr>
                             <th>{index + 1}</th>
-                            <td>{fab.vTitle_fabric}</td>
                             <td>{fab.vTitle}</td>
+                            <td>{fab.Cat_title}</td>
                             <td>{fab.eStatus}</td>
                             <td>
                               <Link to={`/admin/fabric/edit/${fab.iFabricId}`}>

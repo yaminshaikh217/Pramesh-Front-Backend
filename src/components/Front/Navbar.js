@@ -359,7 +359,7 @@ const Navbar = () => {
                                   className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
                                   id="maincate"
                                 >
-                                  {fabric.vTitle_fabric}
+                                  {fabric.vTitle}
                                 </div>
                                 <div className="pl-4">
                                   {header.sub.map(function (sub1, idss) {

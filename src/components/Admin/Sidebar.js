@@ -77,7 +77,7 @@ const Sidebar = () =>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='/admin/subcategory/listing'>
+                            <Link to='/admin/subcategory/listing/0'>
                                 <a className="nav-link">
                                         <i className="fab fa-cloudscale"></i>
                                     <span className="nav-link-text">Sub Category</span>

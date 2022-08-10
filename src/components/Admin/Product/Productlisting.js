@@ -4,6 +4,8 @@ import Sidebar from "../Sidebar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
+
 import "react-toastify/dist/ReactToastify.css";
 const $ = require("jquery");
 $.DataTable = require("datatables.net");
@@ -51,8 +53,24 @@ class Productlisting extends React.Component {
     const fd = new FormData();
     fd.append("iProductId", iProductId);
     if (iProductId) {
-      const dataa = axios
-        .post(del, fd)
+      const dataa = axios.post(del, fd);
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      })
+        .then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Your record has been deleted.", "success");
+            setTimeout(() => {
+              window.location.reload(1);
+            }, 1000);
+          }
+        })
         .then((res) => {
           if (res.data.Status == "0") {
             toast.success(res.data.message, {
@@ -137,7 +155,7 @@ class Productlisting extends React.Component {
                                     if (img.vImage != "") {
                                       return (
                                         <img
-                                        key={id}
+                                          key={id}
                                           className="h-101 w-101"
                                           src={img.vImage}
                                         />
@@ -172,7 +190,7 @@ class Productlisting extends React.Component {
                                     if (colr.vColor != "") {
                                       return (
                                         <div
-                                        key={id}
+                                          key={id}
                                           style={{
                                             "background-color": colr.vColor,
                                           }}
