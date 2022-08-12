@@ -81,7 +81,7 @@ const Subcategory_edit = () => {
                         });
 
                         setTimeout(function () {
-                            history.push("/admin/subcategory/listing");
+                            history.push("/admin/subcategory/listing/0");
                         }, 2000);
                     }
                     else {
@@ -246,7 +246,7 @@ const Subcategory_edit = () => {
                                                                     <>Submit</>
                                                             }
                                                         </button>
-                                                        <Link to='/admin/subcategory/listing'>
+                                                        <Link to='/admin/subcategory/listing/0'>
                                                             <a><button type="button" className="btn btn-warning">Back</button></a>
                                                         </Link>
                                                        

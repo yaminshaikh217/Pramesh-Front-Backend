@@ -10,6 +10,7 @@ import { SketchPicker } from 'react-color';
 const Editvariants = (props) =>
 {
     const [Variants, setVariants] = useState([]);
+
     
     var product_v =  props.data;
 
