@@ -104,7 +104,7 @@ const Fabric_Edit = () => {
       .then((res) => {
         setCategory(res.data.category);
         setCategory_v(res.data.data.iCategoryId);
-        setFabric(res.data.data.vTitle_fabric);
+        setFabric(res.data.data.vTitle);
         setStatus(res.data.data.eStatus);
       })
       .catch((err) => {});
