@@ -33,12 +33,13 @@ const Addtocart = () => {
   const [num, setnum] = useState(0);
   const [Quntity, setQuntity] = useState('');
   const [Sizequntity, setSizequntity] = useState('');
+  const [Pricenum, setPricenum] = useState('');
   const [slide, setSlide] = useState(false);
   const [Totalproducterror, setTotalproducterror] = useState("");
-  const [Qtyerror, setQtyerror]     = useState("");
-  const [Size, setSize]             = useState("");
-  const [ErrorSize, setErrorSize]   = useState("");
-  
+  const [Qtyerror, setQtyerror] = useState("");
+  const [Size, setSize] = useState("");
+  const [ErrorSize, setErrorSize] = useState("");
+
   const [SliderArray, setSliderArray] = useState([]);
 
 
@@ -114,15 +115,13 @@ const Addtocart = () => {
 
   var Carousel = require("react-responsive-carousel").Carousel;
 
-  const plus = () => 
-  {
+  const plus = () => {
     var vQty = document.getElementById("vQty").value;
-    if (vQty!='0')
-    {
-        setQuntity(vQty - 1);
-        if (num < 30) {
-          setnum(num + 1);
-        }
+    if (vQty != '0') {
+      setQuntity(vQty - 1);
+      if (num < 30) {
+        setnum(num + 1);
+      }
     }
   };
 
@@ -135,20 +134,17 @@ const Addtocart = () => {
   const sliding = () => {
     setSlide(false);
   };
-  const sizechange = (e) => 
-  {
+  const sizechange = (e) => {
     var vSize = e.target.value;
     setErrorSize('');
     setSize(vSize);
     setnum(0);
     setQuntity(0);
-    
-    if (answer_array[2] == "localhost:3000") 
-    {
+
+    if (answer_array[2] == "localhost:3000") {
       var product_url = "http://localhost/pramesh/backend/api/product_size_wise_data_get";
-    } 
-    else 
-    {
+    }
+    else {
       var product_url = "https://pramesh.justcodenow.com/backend/api/product_size_wise_data_get";
     }
 
@@ -159,26 +155,25 @@ const Addtocart = () => {
     const dataa = axios
       .post(product_url, fd)
       .then((res) => {
-        if (res.data.Status == "0") 
-        {
+        if (res.data.Status == "0") {
           setSizequntity(res.data.data);
-        } 
-        else 
-        {
+          setPricenum(res.data.price);
+        }
+        else {
           setSizequntity(res.data.data);
+          setPricenum(res.data.price);
         }
       })
       .catch((error) => { });
 
   }
 
-  const addtocart = () => 
-  {
-    var vImage        = document.getElementById("vImage").value;
-    var Addqty        = document.getElementById("Addqty").value;
-    var vPrice        = document.getElementById("vPrice").value;
-    var sizedata      = document.getElementById("sizedata").value;
-    var vProductName  = document.getElementById("vProductName").value;
+  const addtocart = () => {
+    var vImage = document.getElementById("vImage").value;
+    var Addqty = document.getElementById("Addqty").value;
+    var vPrice = document.getElementById("vPrice").value;
+    var sizedata = document.getElementById("sizedata").value;
+    var vProductName = document.getElementById("vProductName").value;
 
     if (Addqty > 0) {
       setQtyerror("");
@@ -202,12 +197,10 @@ const Addtocart = () => {
     fd.append("vCookie", cookie);
     fd.append("vSize", Size);
     fd.append("iUserId", iUserId);
-    
-    
-    if (Size || sizedata == '0')
-    {
-      if (Addqty != '0') 
-      {
+
+
+    if (Size || sizedata == '0') {
+      if (Addqty != '0') {
         if (answer_array[2] == "localhost:3000") {
           var addtocart = "http://localhost/pramesh/backend/api/addtocart";
         } else {
@@ -226,7 +219,7 @@ const Addtocart = () => {
           .catch((error) => { });
       }
     }
-    
+
   };
   // ************************************************WISH LIST ADDED DATA************************************************
   const wishlistAdded = (e) => {
@@ -256,7 +249,7 @@ const Addtocart = () => {
     }
 
   }
-// ************************************************WISH LIST ADDED DATA END************************************************
+  // ************************************************WISH LIST ADDED DATA END************************************************
 
 
 
@@ -303,8 +296,8 @@ const Addtocart = () => {
   );
 
   // ***************Size validation *****************************
-  
-  
+
+
   return (
     <>
       <Navbar />
@@ -335,15 +328,25 @@ const Addtocart = () => {
                   <h1>{product.vProductName}</h1>
                   <input type="hidden" id="vProductName" value={product.vProductName} />
                   <input type="hidden" id="vQty" value={
-                    Sizequntity ? 
+                    Sizequntity ?
                       Sizequntity
-                    :
+                      :
                       product.vQty
-                    } />
+                  } />
                   <input type="hidden" id="Addqty" value={num} />
-                  <input type="hidden" id="vPrice" value={product.vPrice} />
+                  {/* <input type="hidden" id="vPrice" value={product.vPrice} /> */}
                   <input type="hidden" id="sizedata" value={product.iOptionId} />
-                  <p className="mb-5 pri"> र {product.vPrice} </p>
+                  {
+                    Pricenum ? <div>
+                      <p className="mb-5 pri"> र {Pricenum} </p>
+                      <input type="hidden" id="vPrice" value={Pricenum} />
+                    </div>
+                      :
+                      <div>
+                        <p className="mb-5 pri"> र {product.vPrice} </p>
+                        <input type="hidden" id="vPrice" value={product.vPrice} />
+                      </div>
+                  }
                   {
                     product.iOptionId > 0 ?
                       <div className="sizes">
@@ -496,12 +499,12 @@ const Addtocart = () => {
                       <div className="cartinfo">
                         <h2>{addtoct.vProductName}</h2>
                         {
-                          addtoct.vSize!='' ?
+                          addtoct.vSize != '' ?
                             <p> SIZE : <span>{addtoct.vSize}</span></p>
-                          :
-                          <></>
+                            :
+                            <></>
                         }
-                        
+
                         <p>
                           Qty : <span>{addtoct.vQty}</span>
                         </p>

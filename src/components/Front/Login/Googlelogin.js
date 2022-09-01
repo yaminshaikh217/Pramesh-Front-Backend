@@ -4,7 +4,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import { useHistory } from "react-router";
 
-const clientId = "3076278999-d3dc119t0ircn8573inrgl6inivo6mrg.apps.googleusercontent.com";
+const clientId = "785983706091-s396vomd8t3ms340tfn1d0oeg17qsr30.apps.googleusercontent.com";
 
 
 function Logindata() {
