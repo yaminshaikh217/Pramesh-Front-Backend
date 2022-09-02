@@ -494,8 +494,8 @@ const Product_listing = () => {
                     onClick={show_2}
                     className="d-flex justify-content-between"
                   >
-                    {" "}
-                    <span>COLOUR</span>{" "}
+                    
+                    <span>COLOUR</span>
                     <span className="ml-5">
                       <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </span>
@@ -538,8 +538,8 @@ const Product_listing = () => {
                     onClick={show_3}
                     className="d-flex justify-content-between"
                   >
-                    {" "}
-                    <span>FABRIC</span>{" "}
+                    
+                    <span>FABRIC</span>
                     <span className="ml-5">
                       <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </span>
