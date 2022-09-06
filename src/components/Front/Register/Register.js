@@ -25,9 +25,14 @@ const Register = () => {
   const [ErrorConPassword, setErrorConPassword] = useState("");
 
   const [PasswordMetch, setPasswordMetch] = useState("");
-  
 
-  function validateEmail() {
+  const something = (event) => {
+    if (event.keyCode === 13) {
+      register_data_save();
+    }
+  };
+
+  function register_data_save() {
     var emailText = Email;
     var pattern =
       /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
@@ -39,112 +44,76 @@ const Register = () => {
           "https://pramesh.justcodenow.com/backend/api/email_varify";
       }
 
+      // Validation start for form 
+      if (FirstName) {
+        setErrorFirstName("");
+      } else {
+        setErrorFirstName("Please Enter Firstname");
+      }
+
+      if (LastName) {
+        setErrorLastName("");
+      } else {
+        setErrorLastName("Please Enter Firstname");
+      }
+      if (Password.length > 0) {
+        if (Password.length >= 6) {
+          setErrorPassword("");
+        } else {
+          setErrorPassword("Please Enter Maximum Six Digits");
+        }
+      } else {
+        setErrorPassword("Please Enter Password");
+      }
+
+      if (ConPassword.length > 0) {
+        if (ConPassword.length >= 6) {
+          setErrorConPassword("");
+        } else {
+          setPasswordMetch("");
+          setErrorConPassword("Please Enter Maximum Six Digits");
+        }
+      } else {
+        setPasswordMetch("");
+        setErrorConPassword("Please Enter Confirm Password");
+      }
+
+      if (Password === ConPassword) {
+        if (Password.length >= 6 && ConPassword.length >= 6) {
+          setPasswordMetch("");
+          setErrorPassword("");
+          setErrorConPassword("");
+        }
+      } else if (Password.length > 0 && ConPassword.length > 0) {
+        setErrorConPassword("");
+        setErrorPassword("");
+        setPasswordMetch("password does not meet the requirement");
+      }
+
       const fd = new FormData();
       fd.append("vEmail", emailText);
+      fd.append("vFirstName", FirstName);
+      fd.append("vLastName", LastName);
+      fd.append("vPassword", Password);
 
       const dataa = axios.post(email_verify, fd).then((res) => {
         if (res.data.Status == 1) {
           setEmailDone(false);
-          console.log("firse aagye");
           setErrorEmail("email address already exists");
-          return false;
         } else {
           setEmailDone(true);
-          console.log("teste");
           setErrorEmail("");
-          return true;
+          Swal.fire("Good job!", "Registration Successfully", "success");
+          setTimeout(function () {
+            history.push("/login");
+            window.location.reload(1);
+          }, 3000);
         }
       });
     } else {
       setErrorEmail("Invalid email address:" + emailText);
       setEmailDone(true);
       return false;
-    }
-  }
-
-  const something = (event) => {
-    if (event.keyCode === 13) {
-      register_data_save();
-    }
-  };
-
-  function register_data_save() {
-    validateEmail();
-
-    if (FirstName) {
-      setErrorFirstName("");
-    } else {
-      setErrorFirstName("Please Enter Firstname");
-    }
-
-    if (LastName) {
-      setErrorLastName("");
-    } else {
-      setErrorLastName("Please Enter Firstname");
-    }
-    if (Password.length > 0) {
-      if (Password.length >= 6) {
-        setErrorPassword("");
-      } else {
-        setErrorPassword("Please Enter Maximum Six Digits");
-      }
-    } else {
-      setErrorPassword("Please Enter Password");
-    }
-
-    if (ConPassword.length > 0) {
-      if (ConPassword.length >= 6) {
-        setErrorConPassword("");
-      } else {
-        setPasswordMetch("");
-        setErrorConPassword("Please Enter Maximum Six Digits");
-      }
-    } else {
-      setPasswordMetch("");
-      setErrorConPassword("Please Enter Confirm Password");
-    }
-
-    if (Password === ConPassword) {
-      if (Password.length >= 6 && ConPassword.length >= 6) {
-        setPasswordMetch("");
-        setErrorPassword("");
-        setErrorConPassword("");
-      }
-    } else if (Password.length > 0 && ConPassword.length > 0) {
-      setErrorConPassword("");
-      setErrorPassword("");
-      setPasswordMetch("password does not meet the requirement");
-    }
-
-    if (answer_array[2] == "localhost:3000") {
-      var register = "http://localhost/pramesh/backend/api/register";
-    } else {
-      var register = "https://pramesh.justcodenow.com/backend/api/register";
-    }
-
-    if (Password === ConPassword) {
-      if (FirstName && LastName && EmailDone) {
-        const fd = new FormData();
-        fd.append("vFirstName", FirstName);
-        fd.append("vLastName", LastName);
-        fd.append("vEmail", Email);
-        fd.append("vPassword", Password);
-
-        const dataa = axios
-          .post(register, fd)
-          .then((res) => {
-            if (res.data.Status == "0") {
-              Swal.fire("Good job!", "Registration Successfully", "success");
-              setTimeout(function () {
-                history.push("/login");
-                window.location.reload(1);
-              }, 3000);
-            } else {
-              Swal.fire("Error", "Network Connection Error !", "error");
-            }
-          })
-          .catch((error) => {});
-      }
     }
   }
 
@@ -244,7 +213,7 @@ const Register = () => {
                 <Link to="/login">
                   <h2> ALREADY A MEMBER ? SIGN IN </h2>
                 </Link>
-              </div>
+              </div>                                        
 
               <div className="btn-box">
                 <button

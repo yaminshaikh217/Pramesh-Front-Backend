@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../css/home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -15,8 +15,9 @@ const Footer = () => {
     const [EmailDone, setEmailDone] = useState("0");
     const [ErrorEmail, setErrorEmail] = useState('');
 
+    const textInput = useRef(null);
 
-    function validateEmail() {
+    const newsletter = () => {
         var emailText = vEmail;
         var pattern = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
         if (pattern.test(emailText)) {
@@ -25,6 +26,13 @@ const Footer = () => {
             }
             else {
                 var email_verify = 'https://pramesh.justcodenow.com/backend/api/email_varify_news_letter';
+            }
+
+            if (vEmail) {
+                setStatus(false);
+            }
+            else {
+                setStatus(true);
             }
 
             const fd = new FormData();
@@ -36,12 +44,28 @@ const Footer = () => {
                         setEmailDone(0);
                         setStatus(true);
                         setErrorEmail('email address already exists');
-                        return false;
-                    }
-                    else {
+                        toast.error(res.data.message, {
+                            position: "top-left",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    }else {
                         setErrorEmail('');
+                        setvEmail('');
                         setEmailDone(1);
-                        return true;
+                            toast('Email Added Successfully!', {
+                            position: "top-left",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            });
                     }
                 })
                 .catch(error => {
@@ -51,61 +75,6 @@ const Footer = () => {
             setEmailDone(0);
             return false;
         }
-    }
-
-    const newsletter = () => {
-        var Emaildata = validateEmail();
-        if (vEmail) {
-            setStatus(false);
-        }
-        else {
-            setStatus(true);
-        }
-
-        if (answer_array[2] == "localhost:3000") {
-            var news_letter = `http://localhost/pramesh/backend/api/newsLetter`;
-        }
-        else {
-            var news_letter = `https://pramesh.justcodenow.com/backend/api/newsLetter`;
-        }
-
-        const fd = new FormData();
-        fd.append("vEmail", vEmail);
-
-        if (vEmail && EmailDone == 1) {
-            const dataa = axios
-                .post(news_letter, fd)
-                .then((res) => {
-                    if (res.data.Status == "0") {
-                        toast('Email Added Successfully!', {
-                            position: "top-left",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
-                        setTimeout(function () {
-                            window.location.reload(1);
-                        }, 2000);
-                    }
-                    else {
-                        toast.error(res.data.message, {
-                            position: "top-left",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
-                    }
-                })
-                .catch((error) => { });
-        }
-
-
     }
     return (
         <>
@@ -131,6 +100,7 @@ const Footer = () => {
                         id="vEmail"
                         placeholder="EMAIL ID"
                         className={Status == true ? 'borderadded' : ''}
+                        value={vEmail}
                     />
                     <span className="red">{ErrorEmail}</span>
                     <br></br>

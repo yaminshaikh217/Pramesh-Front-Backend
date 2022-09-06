@@ -113,6 +113,7 @@ const AllProduct = () => {
         }
     };
     useEffect(() => {
+        console.log(Product_data);
         mainNavbar();
     }, []);
 

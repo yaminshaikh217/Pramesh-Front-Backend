@@ -83,7 +83,6 @@ class Api extends MX_Controller
         $data['vBannerType']            = $_POST['vBannerType'];
         $data['eShowtype']            	= $_POST['eShowtype'];
 
-		
 		if($_FILES['vImage']['name'] != "")
         {
             if($_FILES['vImage']['type'] == 'image/jpg'){
@@ -1896,7 +1895,7 @@ class Api extends MX_Controller
 		}
 		else
 		{
-			$result     		= $this->variants_model->get_by_all_variants();
+			$result     		= $this->variants_model->get_by_all_variant();
 			if(count($result) > 0)
 			{
 				$data['Status']     = '1';
@@ -2283,7 +2282,7 @@ class Api extends MX_Controller
 	public function product_listing()
 	{	
 		$iFabricId 			= explode("/",$_GET['Filter']);
-
+		
 		if(!empty($iFabricId[0]) && $iFabricId[0]!='on')
 		{
 			$iFabricIddata = $iFabricId[0];
@@ -2429,31 +2428,32 @@ class Api extends MX_Controller
 		
 	}
 	// *********************************Register******************************
-	public function register()
-	{	
-	    $data['vFirstName']              	= $_POST['vFirstName'];
-        $data['vLastName']       			= $_POST['vLastName'];
-        $data['vEmail']           			= $_POST['vEmail'];
-        $data['vPassword']           		= md5($_POST['vPassword']);
-        $data['dtAddedDate']            	= date("Y-m-d h:i:s");
-        $data['dtUpdatedDate']            	= date("Y-m-d h:i:s");
-        $data['eStatus']            		= 'Active';
+	// public function register()
+	// {	
+	//     $data['vFirstName']              	= $_POST['vFirstName'];
+    //     $data['vLastName']       			= $_POST['vLastName'];
+    //     $data['vEmail']           			= $_POST['vEmail'];
+    //     $data['vPassword']           		= md5($_POST['vPassword']);
+    //     $data['dtAddedDate']            	= date("Y-m-d h:i:s");
+    //     $data['dtUpdatedDate']            	= date("Y-m-d h:i:s");
+    //     $data['eStatus']            		= 'Active';
 		
-		$result   = $this->register_model->add($data);
-		if($result)
-		{
-			$data = array();
-			$data['Status'] 		= '0';
-		}
-		else
-		{
-			$data = array();
-			$data['Status'] 		= '1';
-		}
-		echo json_encode($data);
-		exit;
-	}
+	// 	$result   = $this->register_model->add($data);
+	// 	if($result)
+	// 	{
+	// 		$data = array();
+	// 		$data['Status'] 		= '0';
+	// 	}
+	// 	else
+	// 	{
+	// 		$data = array();
+	// 		$data['Status'] 		= '1';
+	// 	}
+	// 	echo json_encode($data);
+	// 	exit;
+	// }
 
+	// For register form api
 	public function email_varify()
 	{	
         $vEmail           			= $_POST['vEmail'];
@@ -2461,8 +2461,29 @@ class Api extends MX_Controller
 
 		if($result == '0')
 		{
-			$data = array();
-			$data['Status'] 		= '0';
+			// $data = array();
+			// $data['Status'] 		= '0';
+			$data['vFirstName']              	= $_POST['vFirstName'];
+			$data['vLastName']       			= $_POST['vLastName'];
+			$data['vEmail']           			= $_POST['vEmail'];
+			$data['vPassword']           		= md5($_POST['vPassword']);
+			$data['dtAddedDate']            	= date("Y-m-d h:i:s");
+			$data['dtUpdatedDate']            	= date("Y-m-d h:i:s");
+			$data['eStatus']            		= 'Active';
+			
+			$result   = $this->register_model->add($data);
+			if($result)
+			{
+				$data = array();
+				$data['Status'] 		= '0';
+			}
+			else
+			{
+				$data = array();
+				$data['Status'] 		= '1';
+			}
+			echo json_encode($data);
+			exit;
 		}
 		else
 		{
@@ -2638,9 +2659,11 @@ class Api extends MX_Controller
 		{
 			$result = '';
 			$allvQty = $vQty + $verify->vQty;
+			$subtotal = $allvQty * $verify->vPrice;
 			$where = array('iProductId'=>$iProductId);
 
 			$data_update['vQty']		= $allvQty;
+			$data_update['vTotal'] 		= $subtotal;
 			$result = $this->register_model->update_addtocart($where,$data_update);
 		}
 		else
@@ -3543,32 +3566,32 @@ class Api extends MX_Controller
 	}
 	
 
-	public function newsLetter()
-	{
+	// public function newsLetter()
+	// {
 		
-		$data['vEmail'] 			= $this->input->post('vEmail');
-		$data['dtAddedDate']    	= date("Y-m-d h:i:s");
+	// 	$data['vEmail'] 			= $this->input->post('vEmail');
+	// 	$data['dtAddedDate']    	= date("Y-m-d h:i:s");
 
-		$id = $this->order_model->add_newsLetter($data);
+	// 	$id = $this->order_model->add_newsLetter($data);
 
-		if($id)
-		{
-			$data = array();
-			$data['Status'] 		= '0';
-			$data['message']		= 'Email Added Successfully';
+	// 	if($id)
+	// 	{
+	// 		$data = array();
+	// 		$data['Status'] 		= '0';
+	// 		$data['message']		= 'Email Added Successfully';
 		
-		}
-		else
-		{
-			$data = array();
-			$data['Status'] 		= '1';
-			$data['data']		    = array();
-		}
+	// 	}
+	// 	else
+	// 	{
+	// 		$data = array();
+	// 		$data['Status'] 		= '1';
+	// 		$data['data']		    = array();
+	// 	}
 	
-		echo json_encode($data);
-		exit;
+	// 	echo json_encode($data);
+	// 	exit;
 
-	}
+	// }
 	public function email_varify_news_letter()
 	{	
         $vEmail   = $_POST['vEmail'];
@@ -3581,8 +3604,28 @@ class Api extends MX_Controller
 		}
 		else
 		{
-			$data = array();
-			$data['Status'] 		= '0';
+			// $data = array();
+			// $data['Status'] 		= '0';
+			$data['vEmail'] = $_POST['vEmail'];
+
+			$id = $this->order_model->add_newsLetter($data);
+
+			if($id)
+			{
+				$data = array();
+				$data['Status'] 		= '0';
+				$data['message']		= 'Email Added Successfully';
+			
+			}
+			else
+			{
+				$data = array();
+				$data['Status'] 		= '1';
+				$data['data']		    = array();
+			}
+		
+			echo json_encode($data);
+			exit;
 		}
 		
 		echo json_encode($data);
@@ -3668,7 +3711,7 @@ class Api extends MX_Controller
 			$data = array();
 			$data['Status'] 		= '0';
 			$data['data'] 			= $result->vQty;
-		
+			$data['price'] 			= $result->vPrice;
 		}
 		else
 		{
