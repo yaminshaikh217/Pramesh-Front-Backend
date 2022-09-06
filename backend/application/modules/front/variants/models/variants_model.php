@@ -50,6 +50,15 @@ class Variants_model extends CI_Model
     {   
         $this->db->from($this->table);
         $this->db->order_by("iVariantId", "desc");
+        $this->db->where('eStatus','Active');
+        $query=$this->db->get();
+        $data = $query->result();
+        return $data;
+    }
+    public function get_by_all_variant()
+    {   
+        $this->db->from($this->table);
+        $this->db->order_by("iVariantId", "desc");
         $query=$this->db->get();
         $data = $query->result();
         return $data;

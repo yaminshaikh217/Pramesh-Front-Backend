@@ -27,10 +27,9 @@ class Subcategory_listing extends React.Component {
     var answer = window.location.href;
     const answer_array = answer.split("/");
     if (answer_array[2] == "localhost:3000") {
-      var url = "http://localhost/pramesh/backend/api/all_subcategory_get";
+      var url = `http://localhost/pramesh/backend/api/all_subcategory_get/${this.props.match.params.id}`;
     } else {
-      var url =
-        "https://pramesh.justcodenow.com/backend/api/all_subcategory_get";
+      var url = `https://pramesh.justcodenow.com/backend/api/all_subcategory_get/${this.props.match.params.id}`;
     }
     const response = await fetch(url);
     const data = await response.json();
@@ -52,7 +51,6 @@ class Subcategory_listing extends React.Component {
     const fd = new FormData();
     fd.append("iSubcategoryId", iSubcategoryId);
     if (iSubcategoryId != "undefined") {
-      const dataa = axios.post(del, fd);
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -64,6 +62,7 @@ class Subcategory_listing extends React.Component {
       })
         .then((result) => {
           if (result.isConfirmed) {
+            const dataa = axios.post(del, fd);
             Swal.fire("Deleted!", "Your record has been deleted.", "success");
             setTimeout(() => {
               window.location.reload(1);

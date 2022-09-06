@@ -53,7 +53,6 @@ class Productlisting extends React.Component {
     const fd = new FormData();
     fd.append("iProductId", iProductId);
     if (iProductId) {
-      const dataa = axios.post(del, fd);
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -65,6 +64,8 @@ class Productlisting extends React.Component {
       })
         .then((result) => {
           if (result.isConfirmed) {
+            const dataa = axios.post(del, fd);
+
             Swal.fire("Deleted!", "Your record has been deleted.", "success");
             setTimeout(() => {
               window.location.reload(1);
