@@ -47,8 +47,6 @@ const Viewcart = () => {
   }, []);
 
   const Remove_addtocart = (e) => {
-    e.target.parentNode.classList.add("animation")
-
     var iAddtocartId = e.target.id;
 
     if (answer_array[2] == "localhost:3000") {
