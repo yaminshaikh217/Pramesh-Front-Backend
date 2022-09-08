@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/home.css";
+import Swal from "sweetalert2";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
@@ -119,7 +120,7 @@ const Addtocart = () => {
     var vQty = document.getElementById("vQty").value;
     if (vQty != '0') {
       setQuntity(vQty - 1);
-      if (num < 30) {
+      if (num < 10) {
         setnum(num + 1);
       }
     }
@@ -169,12 +170,14 @@ const Addtocart = () => {
   }
 
   const addtocart = () => {
+    var vQty = document.getElementById("vQty").value;
     var vImage = document.getElementById("vImage").value;
     var Addqty = document.getElementById("Addqty").value;
     var vPrice = document.getElementById("vPrice").value;
     var sizedata = document.getElementById("sizedata").value;
     var vProductName = document.getElementById("vProductName").value;
 
+    
     if (Addqty > 0) {
       setQtyerror("");
     } else {
@@ -197,6 +200,7 @@ const Addtocart = () => {
     fd.append("vCookie", cookie);
     fd.append("vSize", Size);
     fd.append("iUserId", iUserId);
+    fd.append("vAllQty", vQty);
 
 
     if (Size || sizedata == '0') {
@@ -214,6 +218,12 @@ const Addtocart = () => {
               dispatch(setAddtocartsavedata(res.data.data));
               dispatch(setAddtocartsubtotal(res.data.subtotal));
             } else {
+              Swal.fire({
+                title:"Maximum limit reached",
+                text: ``,
+                icon : "error",
+                timer: 5000
+              });
             }
           })
           .catch((error) => { });
@@ -251,9 +261,8 @@ const Addtocart = () => {
   }
   // ************************************************WISH LIST ADDED DATA END************************************************
 
-
-
   const Remove_addtocart = (e) => {
+    e.target.parentNode.classList.add("animation")
     var iAddtocartId = e.target.id;
     var p = "." + iAddtocartId + "";
 
@@ -296,8 +305,6 @@ const Addtocart = () => {
   );
 
   // ***************Size validation *****************************
-
-
   return (
     <>
       <Navbar />
@@ -399,6 +406,8 @@ const Addtocart = () => {
                   </div>
 
                   <div className="bag mb-5 ">
+                    {
+                      iUserId ?
                     <button className="btnbag" onClick={addtocart}>
                       <i
                         className="fa fa-shopping-bag mr-3"
@@ -406,6 +415,18 @@ const Addtocart = () => {
                       ></i>
                       ADD TO CART
                     </button>
+                        :
+                        <Link to="/login">
+                          <button className="btnbag" onClick={addtocart}>
+                            <i
+                              className="fa fa-shopping-bag mr-3"
+                              aria-hidden="true"
+                            ></i>
+                            ADD TO CART
+                          </button>
+                        </Link>
+
+                    }
                     <span className="heart ml-4">
                       {
                         iUserId ?

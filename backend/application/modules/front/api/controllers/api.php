@@ -2345,7 +2345,6 @@ class Api extends MX_Controller
 			} 
 		}
 
-
 		if(count($result) > 0)
 		{
 			$data['Status']     = '1';
@@ -2630,11 +2629,13 @@ class Api extends MX_Controller
 		$vQty    	= $_POST['vQty'];
 		$vTotal   	= $vPrice * $vQty;
 		$iUserId   	= $_POST['iUserId'];
+		$vCookie 	= $_POST['vCookie'];
 		$size    	= $_POST['vSize'];
 		$iProductId = $_POST['iProductId'];
+		$vAllQty	= $_POST['vAllQty'];
 		
 		$iOptionId   = $this->order_model->get_by_optionid($size);
-
+		
  	    $data['iProductId']              	= $iProductId;
         $data['vProductName']       		= $_POST['vProductName'];
         $data['vPrice']           			= $_POST['vPrice'];
@@ -2652,19 +2653,47 @@ class Api extends MX_Controller
 		$data['vSize']            			= $_POST['vSize'];
 		$data['iOptionId']            	    = $iOptionId;
 		$data['dtAddedDate']            	= date("Y-m-d h:i:s");
+		$data['iTotalQty']					= $vAllQty;
 		
-		$verify   = $this->register_model->add_to_cart_verify_product($iProductId,$size);
+		$verify   = $this->register_model->add_to_cart_verify_product($iProductId,$size,$iUserId,$vCookie);
 		
 		if(count($verify) > 0)
 		{
-			$result = '';
-			$allvQty = $vQty + $verify->vQty;
-			$subtotal = $allvQty * $verify->vPrice;
-			$where = array('iProductId'=>$iProductId);
+			$add_and_DB_qty = $verify->vQty + $vQty;
+			if($vAllQty >= $add_and_DB_qty && $verify->vQty + $vQty <= 10){
 
-			$data_update['vQty']		= $allvQty;
-			$data_update['vTotal'] 		= $subtotal;
-			$result = $this->register_model->update_addtocart($where,$data_update);
+			}else{
+				$data = array();
+				$data['Status'] 		= '1';
+				echo json_encode($data);
+				exit;
+			}
+
+			if($iUserId != '' && $iUserId != null)
+			{
+				$result = '';
+				$allvQty = $vQty + $verify->vQty;
+				$subtotal = $allvQty * $verify->vPrice;
+				$where = array('iProductId'=>$iProductId,'vSize'=>$size,'iUserId'=>$iUserId);
+			
+				$data_update['vQty']		= $allvQty;
+				$data_update['vTotal'] 		= $subtotal;
+				$data_update['iTotalQty']	= $vAllQty;
+				$result = $this->register_model->update_addtocart($where,$data_update);
+			}
+			else
+			{
+				$result = '';
+				$allvQty = $vQty + $verify->vQty;
+				$subtotal = $allvQty * $verify->vPrice;
+				$where = array('iProductId'=>$iProductId,'vSize'=>$size,'vCookie'=>$vCookie);
+			
+				$data_update['vQty']		= $allvQty;
+				$data_update['vTotal'] 		= $subtotal;
+				$data_update['iTotalQty']	= $vAllQty;
+				$result = $this->register_model->update_addtocart($where,$data_update);
+			}
+			
 		}
 		else
 		{
@@ -2696,6 +2725,7 @@ class Api extends MX_Controller
 			$data['Status'] 		= '0';
 			$data['data']           = $addtocart;
 			$data['subtotal']		= array_sum($Subtotal);
+			
 		}
 		else
 		{
@@ -2724,6 +2754,7 @@ class Api extends MX_Controller
 		}
 
 		$result   = $this->register_model->get_by_all_addtocart_data($cookiedata,$iUserId);
+		
 		if(count($result)>0)
 		{
 			$Subtotal = array();
@@ -3193,43 +3224,40 @@ class Api extends MX_Controller
 		$iUserId        = $_POST['iUserId'];
 		$vCookie        = $_POST['vCookie'];
 		
-	
 		$result = $this->register_model->get_by_single_cartdata($iAddtocartId);
-
-	
-		if($action=='inc' && $result->vQty < 10)
-		{
-			
-
-
-			$qty = $result->vQty + 1;
-			$where = array('iAddtocartId'=>$iAddtocartId);
-			$data_update['vQty'] 	= $qty;
-			$data_update['vTotal'] 	= $result->vPrice * $qty;
-
-			$id = $this->register_model->update_addtocart($where,$data_update);
 		
-			// sleep(5);
-			if($id)
-			{
-				
-				$addtocart = $this->register_model->get_by_all_addtocart_data($vCookie,$iUserId);
+		if($action=='inc' && $result->vQty < $result->iTotalQty)
+		{
+			if($result->vQty < 10){
+				$qty = $result->vQty + 1;
+				$where = array('iAddtocartId'=>$iAddtocartId);
+				$data_update['vQty'] 	= $qty;
+				$data_update['vTotal'] 	= $result->vPrice * $qty;
 
-	
-				$Subtotal = array();
-				foreach($addtocart as $key => $value)
-				{	
-					array_push($Subtotal,$value->vTotal);
+				$id = $this->register_model->update_addtocart($where,$data_update);
+			
+				// sleep(5);
+				if($id)
+				{
+					
+					$addtocart = $this->register_model->get_by_all_addtocart_data($vCookie,$iUserId);
+
+		
+					$Subtotal = array();
+					foreach($addtocart as $key => $value)
+					{	
+						array_push($Subtotal,$value->vTotal);
+					}
+					$data['Status']     = '0';
+					$data['data']		= $this->register_model->get_by_all_addtocart_data($cookiedata,$iUserId);
+					$data['subtotal']   = array_sum($Subtotal);
 				}
-				$data['Status']     = '0';
-				$data['data']		= $this->register_model->get_by_all_addtocart_data($cookiedata,$iUserId);
-				$data['subtotal']   = array_sum($Subtotal);
+				else
+				{
+					$data['Status']     = '1';	
+				}
+				echo json_encode($data);
 			}
-			else
-			{
-				$data['Status']     = '1';	
-			}
-			echo json_encode($data);
 		}
 		else if($action=='des')
 		{
@@ -3266,8 +3294,6 @@ class Api extends MX_Controller
 		// {
 		// 	$data['Status']     = '1';	
 		// }
-
-	
 	}
 
 	public function search()

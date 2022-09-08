@@ -105,7 +105,8 @@ class Variants_listing extends React.Component {
     return (
       <>
         <Sidebar />
-        <div className="main-content" id="panel">
+        <div className="mai
+        n-content" id="panel">
           <Header />
           {/* <!-- Page content --> */}
           <div class="container-fluid">

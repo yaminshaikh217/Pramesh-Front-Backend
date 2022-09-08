@@ -13,11 +13,13 @@ import {
 } from "../../../redux/actions/productActions";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ContactsOutlined } from "@material-ui/icons";
 const Viewcart = () => {
   var iUserId = localStorage.getItem("iUserId");
-  var cookie  = localStorage.getItem("cookie");
+  var cookie = localStorage.getItem("cookie");
   const [num, setnum] = useState(0);
   const [cart, setCart] = useState([]);
+  const [totalQty, settotalQty] = useState([]);
 
 
   const dispatch = useDispatch();
@@ -36,6 +38,8 @@ const Viewcart = () => {
       setCart(addtocart.data.data);
       dispatch(setAddtocartsavedata(addtocart.data.data));
       dispatch(setAddtocartsubtotal(addtocart.data.subtotal));
+
+      settotalQty(addtocart.data.data);
     }
   };
   useEffect(() => {
@@ -43,6 +47,8 @@ const Viewcart = () => {
   }, []);
 
   const Remove_addtocart = (e) => {
+    e.target.parentNode.classList.add("animation")
+
     var iAddtocartId = e.target.id;
 
     if (answer_array[2] == "localhost:3000") {
@@ -81,28 +87,28 @@ const Viewcart = () => {
     }
   };
 
- 
 
-  const increment = (cart_id) => 
-  {
-      setCart(
-        cart => cart.map((item) =>
-          cart_id === item.iAddtocartId ? { ...item, vQty: parseInt(item.vQty) + parseInt((item.vQty < 10 ? 1 : 0)) } : item
-        )
-      );
-    CartproductUpdate(cart_id, 'inc');
-  };
-  const decrement = (cart_id) =>
-  {
+
+  const increment = (cart_id) => {
     setCart(
-      cart => cart.map((item) =>
-        cart_id === item.iAddtocartId ? { ...item, vQty: parseInt(item.vQty) - parseInt((item.vQty > 1 ? 1 : 0))} : item
+      cart => cart.map((item, index) => totalQty[index]['iTotalQty'] > 10 ?
+      cart_id === item.iAddtocartId ? { ...item, vQty: parseInt(item.vQty) + parseInt((item.vQty < 10 ? 1 : 0)) } : item
+      :
+      cart_id === item.iAddtocartId ? { ...item, vQty: parseInt(item.vQty) + parseInt((item.vQty < totalQty[index]['iTotalQty'] ? 1 : 0)) } : item
       )
     );
-    CartproductUpdate(cart_id, 'des'); 
+    CartproductUpdate(cart_id, 'inc');
+  };
+  const decrement = (cart_id) => {
+    setCart(
+      cart => cart.map((item) =>
+        cart_id === item.iAddtocartId ? { ...item, vQty: parseInt(item.vQty) - parseInt((item.vQty > 1 ? 1 : 0)) } : item
+      )
+    );
+    CartproductUpdate(cart_id, 'des');
   }
 
-  const CartproductUpdate = (cart_id,action) => {
+  const CartproductUpdate = (cart_id, action) => {
     var iAddtocartId = cart_id;
     var action = action;
 
@@ -117,19 +123,17 @@ const Viewcart = () => {
     fd.append("action", action);
     fd.append("vCookie", cookie);
     fd.append("iUserId", iUserId);
-    if (iAddtocartId != "undefined") 
-    {
+    if (iAddtocartId != "undefined") {
       const dataa = axios
         .post(remove_product, fd)
         .then((res) => {
-          if (res.data.Status == "0") 
-          {
-              
+          if (res.data.Status == "0") {
 
-              dispatch(setAddtocartsavedata(res.data.data));
-              dispatch(setAddtocartsubtotal(res.data.subtotal));
 
-              toast('Quantity Update Successfully!', {
+            dispatch(setAddtocartsavedata(res.data.data));
+            dispatch(setAddtocartsubtotal(res.data.subtotal));
+
+            toast('Quantity Update Successfully!', {
               position: "top-left",
               autoClose: 5000,
               hideProgressBar: false,
@@ -138,9 +142,8 @@ const Viewcart = () => {
               draggable: true,
               progress: undefined,
             });
-          } 
-          else 
-          {
+          }
+          else {
             toast.error(res.data.message, {
               position: "top-left",
               autoClose: 5000,
@@ -164,7 +167,7 @@ const Viewcart = () => {
     (state) => state.MainAddtocartsubtotal.MainAddtocartsubtotalArray
   );
 
-  
+
   return (
     <>
       <Navbar />
@@ -187,7 +190,7 @@ const Viewcart = () => {
                 cart.map(function (add, index) {
                   return (
                     <div className="row mt-2 bordb">
-                      <span className="close">
+                      {/* <span className="close"> */}
                         <button
                           id={`${add.iAddtocartId}`}
                           onClick={Remove_addtocart}
@@ -196,7 +199,7 @@ const Viewcart = () => {
                           X
                         </button>
                         {/* <i className="fa fa-close"></i> */}
-                      </span>
+                      {/* </span> */}
 
                       <div
                         className="col-xl-5 col-lg-5  col-md-3 col-sm-3
@@ -256,7 +259,7 @@ const Viewcart = () => {
               <button className="checkBtn">PROCEED TO CHECKOUT</button>
             </Link>
           </section>
-        :
+          :
           <div className=" overflow-hidden position-relative d-flex">
             <img
               src={process.env.PUBLIC_URL + "/Images/Record_not_found.svg"}
@@ -265,7 +268,7 @@ const Viewcart = () => {
             />
           </div>
       }
-     
+
 
       <Footer />
       <ToastContainer

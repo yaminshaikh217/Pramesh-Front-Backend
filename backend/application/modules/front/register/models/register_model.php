@@ -56,17 +56,32 @@ class Register_model extends CI_Model
         $data = $query->row();
         return $data;
     }
-    public function add_to_cart_verify_product($iProductId,$size)
+    public function add_to_cart_verify_product($iProductId,$size,$iUserId,$vCookie)
     {
-        $this->db->from($this->table_addtocart);
-        $this->db->where('iProductId',$iProductId);
-        if(!empty($size))
-        {
-            $this->db->where('vSize',$size);
+        if($iUserId != null && $iUserId != ''){
+            $this->db->from($this->table_addtocart);
+            $this->db->where('iProductId',$iProductId);
+            $this->db->where('iUserId',$iUserId);
+            if(!empty($size))
+            {
+                $this->db->where('vSize',$size);
+            }
+            $query=$this->db->get();
+            $data = $query->row();
+            return $data;
         }
-        $query=$this->db->get();
-        $data = $query->row();
-        return $data;
+        if($iUserId == null || $iUserId == ''){
+            $this->db->from($this->table_addtocart);
+            $this->db->where('iProductId',$iProductId);
+            $this->db->where('vCookie',$vCookie);
+            if(!empty($size))
+            {
+                $this->db->where('vSize',$size);
+            }
+            $query=$this->db->get();
+            $data = $query->row();
+            return $data;
+        }
     }
 
 

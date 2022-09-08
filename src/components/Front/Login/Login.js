@@ -102,7 +102,7 @@ const Login = () => {
                         setTimeout(function () {
                             history.push("/");
                             window.location.reload(1);
-                        }, 3000);
+                        }, 2000);
                     }
                     else {
                         Swal.fire(
