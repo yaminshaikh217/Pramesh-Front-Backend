@@ -32,9 +32,6 @@
   margin: 0.5rem;
 }
 
-/* #root {
-  overflow: hidden
-} */
 /* *****login Page Design ********* */
 
 @import url("//db.onlinewebfonts.com/c/fe2027c27b6a24505f548c6fd2e1076d?family=Berlin+Sans+FB");
@@ -280,12 +277,6 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
-
-/* .fix{
-  color: red !important;
-  background: red;
-  font-size: 7rem;
-} */
 
 /* LOADER STYLING  */
 
