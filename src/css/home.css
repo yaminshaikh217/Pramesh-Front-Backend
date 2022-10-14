@@ -775,6 +775,7 @@ main {
     height: 4rem;
     justify-content: center;
     align-items: center;
+    left:0;
   }
 
   .icons,

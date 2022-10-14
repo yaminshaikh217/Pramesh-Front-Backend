@@ -17,5 +17,4 @@ export const Actiontype = {
     SEARCHDATA                  : "SEARCHDATA",
     WISHLIST                    : "WISHLIST",
     TERMS_CONDITION             : "TERMS_CONDITION",
-
 }

@@ -4,7 +4,6 @@ export const setProducts = (products) => {
     return {
         type: Actiontype.SET_BANNER,
         payload: products
-
     }
 }
 

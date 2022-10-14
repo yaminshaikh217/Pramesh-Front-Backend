@@ -284,14 +284,13 @@
   width: 100vw;
   height: 100vh;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20rem;
+  width: min(20rem,calc(100% - 3rem));
 }
 
 .loader img {
