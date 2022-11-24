@@ -169,7 +169,7 @@ const FirstPage_image = () => {
                                 <div className="card-header border-0 d-flex">
                                     <div className="row align-items-center">
                                         <div className="col">
-                                            <Link to={`/admin/product/edit/${iStoriesId}`}>
+                                            <Link to={`/admin/stories/edit/${iStoriesId}`}>
                                                 <button className="btn genBtn">Stories Edit</button>
                                             </Link>
                                         </div>
