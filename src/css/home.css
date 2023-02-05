@@ -4533,7 +4533,7 @@ input[type="number"]::-webkit-outer-spin-button {
   text-align: center;
   height: 100%;
   flex-direction: column;
-  padding: 0 2rem ;
+  padding: 0 2rem;
 }
 
 .hand_div h1 {
@@ -4819,57 +4819,57 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* stories page responsive  */
 
-@media (max-width : 1550px) {
+@media (max-width: 1550px) {
   .secondStories {
     max-width: 1250px;
   }
 }
-@media (max-width : 1250px) {
+@media (max-width: 1250px) {
   .secondStories {
     max-width: 960px;
   }
-  .hand_div h1{
+  .hand_div h1 {
     font-size: 2.2rem;
   }
-  .fourth_h1{
+  .fourth_h1 {
     font-size: 1.7rem;
   }
 }
 
-@media (max-width : 991px) {
+@media (max-width: 991px) {
   .secondStories {
     max-width: 720px;
   }
 }
-@media (max-width : 767px) {
-    .sec_h2 {
-      text-align: center;
-      font-size: 2rem;
-    }
-    .third_h2 {
-      text-align: left;
-      margin-left: 0;
-    }
-    .row.customstories .col-xl-2 {
-      flex: 0 0 50% !important;
-      max-width: 50% !important;
-    }
-    .row.customstories {
-      justify-content: center;
-    }
-    .custom#carouselExampleControls5 {
-      width: 100%;
-    }
-    .row.grey {
-      padding: 0rem;
-    }
+@media (max-width: 767px) {
+  .sec_h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .third_h2 {
+    text-align: left;
+    margin-left: 0;
+  }
+  .row.customstories .col-xl-2 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  .row.customstories {
+    justify-content: center;
+  }
+  .custom#carouselExampleControls5 {
+    width: 100%;
+  }
+  .row.grey {
+    padding: 0rem;
+  }
 }
-@media (max-width : 650px) {
+@media (max-width: 650px) {
   .secondStories {
     max-width: 540px;
   }
 }
-@media (max-width : 576px) {
+@media (max-width: 576px) {
   .fifthPage .row {
     display: block !important;
   }
@@ -4885,7 +4885,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .fourth_h1 {
     font-size: 1.6rem;
   }
-  .custom#carouselExampleControls5  {
+  .custom#carouselExampleControls5 {
     width: 100%;
   }
 }
@@ -4894,8 +4894,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-@media (max-width : 1200px) {
-  .fourthPage .carousel-item.active.carousel-item-left ,  .fifthPage .carousel-item.active.carousel-item-left {
+@media (max-width: 1200px) {
+  .fourthPage .carousel-item.active.carousel-item-left,
+  .fifthPage .carousel-item.active.carousel-item-left {
     display: none !important;
   }
 }
+/* sds */
