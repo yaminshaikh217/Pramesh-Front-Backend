@@ -26,10 +26,10 @@ const HomePage = () => {
         var FirstImage = `http://localhost/pramesh/backend/api/first_image`;
         var Secondimage = `http://localhost/pramesh/backend/api/second_image`;
         var Thirdimage = `http://localhost/pramesh/backend/api/third_image`;
-        var homepage_producturl  = `http://localhost/pramesh/backend/api/homepage_product`;
+        var homepage_producturl = `http://localhost/pramesh/backend/api/homepage_product`;
     }
     else {
-         urls = `https://pramesh.justcodenow.com/backend/api/banner`;
+        urls = `https://pramesh.justcodenow.com/backend/api/banner`;
         var minibanner = `https://pramesh.justcodenow.com/backend/api/mini_banner`;
         var FirstImage = `https://pramesh.justcodenow.com/backend/api/first_image`;
         var Secondimage = `https://pramesh.justcodenow.com/backend/api/second_image`;
@@ -48,8 +48,7 @@ const HomePage = () => {
         const firstimage = await axios.get(FirstImage).catch((err) => {
         });
 
-        if (response.data.data) 
-        {
+        if (response.data.data) {
             dispatch(setProducts(response.data.data));
             setMobileBanner(response.data.mobile);
         }
@@ -113,8 +112,7 @@ const HomePage = () => {
     var img1 = secondiamgedata.vImage;
     var img2 = thirdiamgedata.vImage;
 
-    const bannerList = products_data.map((pro, index) => 
-    {
+    const bannerList = products_data.map((pro, index) => {
         if (index == '0') {
             var ac = 'active';
         }
@@ -131,8 +129,7 @@ const HomePage = () => {
         );
     })
     // *****************************************BannerMobile  Dynamic************************************
-    const Mobilebanner = MobileBanner.map((pro1, index1) => 
-    {
+    const Mobilebanner = MobileBanner.map((pro1, index1) => {
         if (index1 == '0') {
             var ac1 = 'active';
         }
@@ -367,7 +364,7 @@ const HomePage = () => {
                         homepage_productdata.map((product, index) => (
                             <>
 
-                                <div className=" col-xl-3 col-lg-4 col-md-6 col-sm-12 mx-auto">
+                                <div className=" col-xl-3 col-lg-4 col-md-6 col-sm-12 mx-auto p-0">
                                     <div className="overflow-hidden">
                                         <Link to={`/product-listing/${btoa(product.iCategoryId)}`}>
                                             <img

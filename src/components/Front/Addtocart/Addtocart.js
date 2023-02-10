@@ -4,14 +4,12 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fade } from "@material-ui/core";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { gsap } from "gsap/all";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import {
   setAddtocartpage,
   setAddtocartsavedata,
@@ -306,7 +304,7 @@ const Addtocart = () => {
           {Single_product.map(function (product, i) {
             return (
               <>
-                <div className="col-xl-5 col-lg-5 leftcart">
+                <div className="col-xl-5 col-lg-5 leftcart product-slider-mobile">
                   <Carousel showArrows={false}>
                     {product.image.map(function (img, index) {
                       return (
@@ -317,11 +315,20 @@ const Addtocart = () => {
                               :
                               <></>
                           }
-                          <img src={img.vImage} alt="" />
+                          <img src={img.vImage} alt="saree" />
                         </div>
                       );
                     })}
                   </Carousel>
+                </div>
+                <div className="col-xl-5 col-lg-5 leftcart product-slider-pc">
+                  {product.image.map(function (img, index) {
+                    return (
+                      <div>
+                        <img src={img.vImage} alt="saree" />
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="col-xl-7 col-lg-7 rightcart">

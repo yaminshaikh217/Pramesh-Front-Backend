@@ -63,7 +63,10 @@ table {
 button:focus {
   outline: none !important;
 }
-
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
 .img-fluid {
   object-fit: cover;
 }
@@ -186,8 +189,8 @@ nav ul li a {
   background-repeat: no-repeat !important;
   top: 7.2rem;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-around;
+  /* align-items: center; */
   transition: 0s !important;
   animation: 0s !important;
   width: 100vw;
@@ -209,7 +212,7 @@ nav ul li a {
 }
 
 .nItem div {
-  display: inline-block !important;
+  /* display: inline-block !important; */
   /* height: 5rem; */
 }
 /* 
@@ -336,10 +339,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .right > div {
-  width: 50rem;
+  width: 50%;
 }
 
 .right h1 {
@@ -362,16 +366,15 @@ main {
 }
 
 .nostalgic .carousel-item {
-  height: 70rem;
+  aspect-ratio: 4/6;
 }
 
 .nostalgic .carousel-item img {
   position: absolute;
-  /* aspect-ratio: 1; */
   object-fit: cover;
   top: 0;
   left: 0;
-  min-height: 70rem;
+  aspect-ratio: 4/6;
 }
 
 /* ******FESTIVE SECTION *********** */
@@ -403,14 +406,15 @@ main {
 }
 
 .festive .row div img {
-  height: 60vh;
+  /* height: 60vh; */
   margin-bottom: 0.5rem;
   cursor: pointer;
   transition: all 2s linear;
   object-fit: cover;
-  width: 34rem;
+  /* width: 34rem; */
   margin: 0 auto;
   display: block;
+  aspect-ratio: 4/6;
 }
 
 .festive .row div {
@@ -1804,6 +1808,9 @@ label {
 .leftcart {
   background: rgba(255, 255, 255, 0.6);
   padding-left: 0rem !important;
+}
+.product-slider-mobile {
+  display: none;
 }
 
 /******** QUANTITY STYLING*********** */
@@ -4461,8 +4468,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .carousel-control-prev,
 .carousel-control-next {
-  top: 50% !important;
-  bottom: unset !important;
+  /* top: 50% !important; */
+  /* bottom: unset !important; */
   width: 5% !important;
   opacity: 1 !important;
 }
@@ -4486,7 +4493,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .row.nItem {
-  flex-direction: column;
+  /* flex-direction: column; */
   width: 100%;
 }
 
@@ -4839,6 +4846,12 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (max-width: 991px) {
   .secondStories {
     max-width: 720px;
+  }
+  .product-slider-pc {
+    display: none;
+  }
+  .product-slider-mobile {
+    display: flex;
   }
 }
 @media (max-width: 767px) {

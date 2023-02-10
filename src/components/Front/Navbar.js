@@ -82,7 +82,7 @@ const Navbar = () => {
             dispatch(setSearchdata(res.data.data));
           }
         })
-        .catch((error) => {});
+        .catch((error) => { });
     } else {
       dispatch(setSearchdata([]));
       setCalorcategory([]);
@@ -157,7 +157,7 @@ const Navbar = () => {
   }
   const mainNavbar = async () => {
     // ***************HEADER***************
-    const headerdata = await axios.get(header).catch((err) => {});
+    const headerdata = await axios.get(header).catch((err) => { });
     if (headerdata.data.data) {
       dispatch(setMainheader(headerdata.data.data));
       dispatch(setAllfabric(headerdata.data.fabric));
@@ -213,7 +213,7 @@ const Navbar = () => {
           } else {
           }
         })
-        .catch((error) => {});
+        .catch((error) => { });
     }
   };
 
@@ -262,7 +262,7 @@ const Navbar = () => {
 
   const mainproductdata = async () => {
     const maindata = await axios.get(url).catch((err) => {
-      
+
     });
     if (maindata.data.data) {
       dispatch(setMainproductdata(maindata.data.data));
@@ -294,9 +294,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar ${
-          stick ? "sticked" : ""
-        } navbar-expand-lg navbar-light bg-light`}
+        className={`navbar ${stick ? "sticked" : ""
+          } navbar-expand-lg navbar-light bg-light`}
       >
         <div className="nav-div">
           <Link to="/">
@@ -347,51 +346,52 @@ const Navbar = () => {
                     </Link>
 
                     <div
-                      className={`dropdown-menu custm  ${header.vTitle} ${c_size}`}
+                      className={`dropdown-menu custm  ${header.vTitle} ${c_size} nItem`}
                       aria-labelledby="navbarDropdownMenuLink"
                     >
-                      <div className="row nItem pl-5">
+                      {/* <div className="row nItem pl-5"> */}
                         {AllFabricData.map(function (fabric, ids) {
                           if (fabric.iCategoryId == header.iCategoryId) {
                             return (
                               <>
-                                <div
-                                  className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
-                                  id="maincate"
-                                >
-                                  {fabric.vTitle}
-                                </div>
-                                <div className="pl-4">
-                                  {header.sub.map(function (sub1, idss) {
-                                    if (sub1.iFabricId == fabric.iFabricId) {
-                                      var subcatname = "";
-                                      var subcatname = sub1.vSubTitle;
-                                      var name = subcatname.replace(/ /g, "");
-                                      return (
-                                        <div className={p}>
-                                          <Link
-                                            to={`/product-listing/${name}/${sub1.iSubcategoryId}`}
-                                          >
-                                            <a
-                                              onMouseOver={mouse_hover}
-                                              data-id={`${sub1.vImage}`}
-                                              id={`${sub1.iSubcategoryId}`}
-                                              onClick={SubcategortClick}
-                                              className="dropdown-item"
+                                <div>
+                                  <div
+                                    className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
+                                    id="maincate"
+                                  >
+                                    {fabric.vTitle}
+                                  </div>
+                                  <div className="pl-4">
+                                    {header.sub.map(function (sub1, idss) {
+                                      if (sub1.iFabricId == fabric.iFabricId) {
+                                        var subcatname = "";
+                                        var subcatname = sub1.vSubTitle;
+                                        var name = subcatname.replace(/ /g, "");
+                                        return (
+                                          <div>
+                                            <Link
+                                              to={`/product-listing/${name}/${sub1.iSubcategoryId}`}
                                             >
-                                              {sub1.vSubTitle}
-                                            </a>
-                                          </Link>
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                </div>
+                                              <a
+                                                onMouseOver={mouse_hover}
+                                                data-id={`${sub1.vImage}`}
+                                                id={`${sub1.iSubcategoryId}`}
+                                                onClick={SubcategortClick}
+                                                className="dropdown-item"
+                                              >
+                                                {sub1.vSubTitle}
+                                              </a>
+                                            </Link>
+                                          </div>
+                                        );
+                                      }
+                                    })}
+                                  </div></div>
                               </>
                             );
                           }
                         })}
-                      </div>
+                      {/* </div> */}
 
                       <div className=" previewImg">
                         {image_zooming != "" ? (
@@ -496,9 +496,8 @@ const Navbar = () => {
               )}
 
               <div
-                className={`drop ${
-                  SearchData.length >= 7 ? "dropdownshow" : ""
-                }`}
+                className={`drop ${SearchData.length >= 7 ? "dropdownshow" : ""
+                  }`}
               >
                 {SearchData.map(function (sea, index) {
                   return (
