@@ -381,11 +381,6 @@ const HomePage = () => {
                             </>
                         ))
                     }
-
-
-
-
-
                 </div>
             </section>
             {/* *********** Classic Section ************* */}

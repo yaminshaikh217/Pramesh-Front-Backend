@@ -350,47 +350,47 @@ const Navbar = () => {
                       aria-labelledby="navbarDropdownMenuLink"
                     >
                       {/* <div className="row nItem pl-5"> */}
-                        {AllFabricData.map(function (fabric, ids) {
-                          if (fabric.iCategoryId == header.iCategoryId) {
-                            return (
-                              <>
+                      {AllFabricData.map(function (fabric, ids) {
+                        if (fabric.iCategoryId == header.iCategoryId) {
+                          return (
+                            <>
+                              <div>
+                                <div
+                                  className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
+                                  id="maincate"
+                                >
+                                  {fabric.vTitle}
+                                </div>
                                 <div>
-                                  <div
-                                    className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
-                                    id="maincate"
-                                  >
-                                    {fabric.vTitle}
-                                  </div>
-                                  <div className="pl-4">
-                                    {header.sub.map(function (sub1, idss) {
-                                      if (sub1.iFabricId == fabric.iFabricId) {
-                                        var subcatname = "";
-                                        var subcatname = sub1.vSubTitle;
-                                        var name = subcatname.replace(/ /g, "");
-                                        return (
-                                          <div>
-                                            <Link
-                                              to={`/product-listing/${name}/${sub1.iSubcategoryId}`}
+                                  {header.sub.map(function (sub1, idss) {
+                                    if (sub1.iFabricId == fabric.iFabricId) {
+                                      var subcatname = "";
+                                      var subcatname = sub1.vSubTitle;
+                                      var name = subcatname.replace(/ /g, "");
+                                      return (
+                                        <div>
+                                          <Link
+                                            to={`/product-listing/${name}/${sub1.iSubcategoryId}`}
+                                          >
+                                            <a
+                                              onMouseOver={mouse_hover}
+                                              data-id={`${sub1.vImage}`}
+                                              id={`${sub1.iSubcategoryId}`}
+                                              onClick={SubcategortClick}
+                                              className="dropdown-item"
                                             >
-                                              <a
-                                                onMouseOver={mouse_hover}
-                                                data-id={`${sub1.vImage}`}
-                                                id={`${sub1.iSubcategoryId}`}
-                                                onClick={SubcategortClick}
-                                                className="dropdown-item"
-                                              >
-                                                {sub1.vSubTitle}
-                                              </a>
-                                            </Link>
-                                          </div>
-                                        );
-                                      }
-                                    })}
-                                  </div></div>
-                              </>
-                            );
-                          }
-                        })}
+                                              {sub1.vSubTitle}
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      );
+                                    }
+                                  })}
+                                </div></div>
+                            </>
+                          );
+                        }
+                      })}
                       {/* </div> */}
 
                       <div className=" previewImg">
