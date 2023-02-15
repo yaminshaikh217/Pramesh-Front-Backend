@@ -356,7 +356,6 @@ const Navbar = () => {
                             <>
                               <div>
                                 <div
-                                  className="col-xl-3  col-lg-4 col-md-6 col-sm-6"
                                   id="maincate"
                                 >
                                   {fabric.vTitle}
