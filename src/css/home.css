@@ -4068,8 +4068,11 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   /* .navbar .nav-item:hover .nav-link{   } */
   .navbar .nav-item:hover .dropdown-menu {
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex;
+    justify-content: space-evenly; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    justify-items: self-end;
   }
   .navbar .nav-item .dropdown-menu {
     margin-top: 0;
