@@ -107,7 +107,7 @@ class Category_listing extends React.Component {
         <div className="main-content" id="panel">
           <Header />
           {/* <!-- Page content --> */}
-          <div class="container-fluid">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-xl-12 col-md-12 col-sm-12">
                 <div className="card">
@@ -172,7 +172,7 @@ class Category_listing extends React.Component {
 
                               <button
                                 id={`${cat.iCategoryId}`}
-                                class="btn myBtn2"
+                                className="btn myBtn2"
                                 onClick={this.deletedata}
                               >
                                 Delete

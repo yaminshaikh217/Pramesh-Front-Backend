@@ -176,9 +176,9 @@ class Banner_listing extends React.Component {
                             <td>{banner.eStatus}</td>
                             <td>
                               {banner.eShowtype == "Mobile" ? (
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <i className="fa fa-mobile" aria-hidden="true"></i>
                               ) : (
-                                <i class="fa fa-desktop" aria-hidden="true"></i>
+                                <i className="fa fa-desktop" aria-hidden="true"></i>
                               )}
                             </td>
 

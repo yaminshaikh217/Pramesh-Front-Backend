@@ -296,11 +296,11 @@ const Product_image = () => {
                                                         <div className="position-relative d-inline-block">
                                                             {
                                                               image.vType==1 ?
-                                                                    <i data-id="Added" onClick={Homepageshowimage} id={`${image.iImageId}`} class="fa fa-eye" aria-hidden="true"></i>
+                                                                    <i data-id="Added" onClick={Homepageshowimage} id={`${image.iImageId}`} className="fa fa-eye" aria-hidden="true"></i>
                                                                    
                                                                 :
                                                                     <i data-id="NotAdded" onClick={Homepageshowimage} id={`${image.iImageId}`}
-                                                                    class="fa fa-eye-slash" aria-hidden="true"></i>
+                                                                    className="fa fa-eye-slash" aria-hidden="true"></i>
                                                                 
                                                             }
                                                             <img src={image.vImage} className="multiple_image" />

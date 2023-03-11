@@ -267,7 +267,7 @@ const Addstories = () => {
                               onChange={(e) => setTitle1(e.target.value)}
                               id="vDescription"
                               rows="4"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Description..."
                             ></textarea>
                             <span className="red">{Title1_e}</span>
@@ -438,7 +438,7 @@ const Addstories = () => {
                               name="video_desc"
                               id="vDescription"
                               rows="4"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Description..."
                             ></textarea>
                             <span className="red">{Title7_e}</span>
@@ -496,7 +496,7 @@ const Addstories = () => {
                               name="second_stories_desc"
                               id="vDescription"
                               rows="4"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Description..."
                             ></textarea>
                             <span className="red">{Title9_e}</span>

@@ -419,24 +419,24 @@ const AllProduct = () => {
 
                                         <span>PRICE</span>
                                         <span className="ml-5">
-                                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                            <i className="fa fa-chevron-down" aria-hidden="true"></i>
                                         </span>
                                     </h2>
                                     <div className={`flex ${show1 ? "d-none" : ""}`} id="show1">
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input
                                                 type="radio"
                                                 onClick={category_filter}
                                                 name="price1"
                                                 id="price1"
                                             />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="price1">ALL PRICE</label>
                                             </div>
                                         </div>
 
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input
                                                 type="radio"
                                                 onClick={category_filter}
@@ -444,12 +444,12 @@ const AllProduct = () => {
                                                 name="price1"
                                                 id="price1"
                                             />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="price1">5000 - 10000</label>
                                             </div>
                                         </div>
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input
                                                 type="radio"
                                                 onClick={category_filter}
@@ -457,12 +457,12 @@ const AllProduct = () => {
                                                 name="price1"
                                                 id="price2"
                                             />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="price2">10000 - 20000</label>
                                             </div>
                                         </div>
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input
                                                 type="radio"
                                                 onClick={category_filter}
@@ -470,8 +470,8 @@ const AllProduct = () => {
                                                 name="price1"
                                                 id="price3"
                                             />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="price3">30000 - 40000</label>
                                             </div>
                                         </div>
@@ -479,21 +479,21 @@ const AllProduct = () => {
                                 </div>
 
                                 <div className="color">
-                                    <h2 onClick={show_2} className="d-flex justify-content-between"> <span>COLOUR</span>  <span className="ml-5"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h2>
+                                    <h2 onClick={show_2} className="d-flex justify-content-between"> <span>COLOUR</span>  <span className="ml-5"><i className="fa fa-chevron-down" aria-hidden="true"></i></span></h2>
                                     <div id="show2" className={`flex ${show2 ? "d-none" : ""}`}>
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input type="radio" onClick={ClickColorFilter} name="colour" id="allcolor" />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="allcolor">All COLOR {show2}</label>
                                             </div>
                                         </div>
                                         {
                                             ColorArray.map(function (color, index) {
-                                                return <div class="pretty p-icon p-smooth">
+                                                return <div className="pretty p-icon p-smooth">
                                                     <input type="radio" onClick={ClickColorFilter} value={color.iColorId} name="colour" id="yellow" />
-                                                    <div class="state p-maroon">
-                                                        <i class="icon fa fa-check"></i>
+                                                    <div className="state p-maroon">
+                                                        <i className="icon fa fa-check"></i>
                                                         <label htmlFor="yellow">{color.vColor}</label>
                                                     </div>
                                                 </div>
@@ -503,18 +503,18 @@ const AllProduct = () => {
                                 </div>
 
                                 <div className="fabric">
-                                    <h2 onClick={show_3} className="d-flex justify-content-between"> <span>FABRIC</span>  <span className="ml-5"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h2>
+                                    <h2 onClick={show_3} className="d-flex justify-content-between"> <span>FABRIC</span>  <span className="ml-5"><i className="fa fa-chevron-down" aria-hidden="true"></i></span></h2>
                                     <div id='show3' className={`flex ${show3 ? "d-none" : ""}`}>
-                                        <div class="pretty p-icon p-smooth">
+                                        <div className="pretty p-icon p-smooth">
                                             <input type="radio" onClick={fabric_filter} name="silk" id="silk" />
-                                            <div class="state p-maroon">
-                                                <i class="icon fa fa-check"></i>
+                                            <div className="state p-maroon">
+                                                <i className="icon fa fa-check"></i>
                                                 <label htmlFor="silk">All FABRIC</label>
                                             </div>
                                         </div>
                                         {FabricArray.map(function (Fabric, index) {
                                             return (
-                                                <div class="pretty p-icon p-smooth">
+                                                <div className="pretty p-icon p-smooth">
                                                     <input
                                                         type="radio"
                                                         onClick={fabric_filter}
@@ -522,8 +522,8 @@ const AllProduct = () => {
                                                         name="silk"
                                                         id="silk"
                                                     />
-                                                    <div class="state p-maroon">
-                                                        <i class="icon fa fa-check"></i>
+                                                    <div className="state p-maroon">
+                                                        <i className="icon fa fa-check"></i>
                                                         <label htmlFor="silk">{Fabric.vTitle}</label>
                                                     </div>
                                                 </div>
@@ -555,7 +555,7 @@ const AllProduct = () => {
                         >
                             <div className="catoFlex catoFlex2">
                                 <div className="flex flexing cflex">
-                                    <div class="pretty p-icon p-smooth">
+                                    <div className="pretty p-icon p-smooth">
                                         <input
                                             type="radio"
                                             onClick={filterclick}
@@ -563,12 +563,12 @@ const AllProduct = () => {
                                             id="highest"
                                             value='DESC'
                                         />
-                                        <div class="state p-maroon">
-                                            <i class="icon fa fa-check"></i>
+                                        <div className="state p-maroon">
+                                            <i className="icon fa fa-check"></i>
                                             <label htmlFor="highest">LATEST PRODUCTS</label>
                                         </div>
                                     </div>
-                                    <div class="pretty p-icon p-smooth">
+                                    <div className="pretty p-icon p-smooth">
                                         <input
                                             type="radio"
                                             onClick={filterclick}
@@ -576,12 +576,12 @@ const AllProduct = () => {
                                             name="trending"
                                             id="highest"
                                         />
-                                        <div class="state p-maroon">
-                                            <i class="icon fa fa-check"></i>
+                                        <div className="state p-maroon">
+                                            <i className="icon fa fa-check"></i>
                                             <label htmlFor="highest">PRICE - HIGH TO LOW</label>
                                         </div>
                                     </div>
-                                    <div class="pretty p-icon p-smooth">
+                                    <div className="pretty p-icon p-smooth">
                                         <input
                                             type="radio"
                                             onClick={filterclick}
@@ -589,8 +589,8 @@ const AllProduct = () => {
                                             name="trending"
                                             id="lowest"
                                         />
-                                        <div class="state p-maroon">
-                                            <i class="icon fa fa-check"></i>
+                                        <div className="state p-maroon">
+                                            <i className="icon fa fa-check"></i>
                                             <label htmlFor="lowest">PRICE - LOW TO HIGH</label>
                                         </div>
                                     </div>

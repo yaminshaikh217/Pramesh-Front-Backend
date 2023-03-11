@@ -204,7 +204,7 @@ const AddImage = () => {
                             <textarea
                               id="vDescription"
                               rows="4"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Description..."
                               onChange={(e) => setDesc(e.target.value)}
                             ></textarea>

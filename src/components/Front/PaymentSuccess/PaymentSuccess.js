@@ -27,8 +27,8 @@ const PaymentSuccess = () => {
                             alt="payment successfull"
                         />
                     </div>
-                    <h1>Your Payment is Successfull <i class="far fa-check-circle"></i></h1>
-                    <a href="/"> <button className="home"> <i class="fas fa-arrow-left"></i> Back to Home</button> </a>
+                    <h1>Your Payment is Successfull <i className="far fa-check-circle"></i></h1>
+                    <a href="/"> <button className="home"> <i className="fas fa-arrow-left"></i> Back to Home</button> </a>
                 </div>
             </div>
         </>

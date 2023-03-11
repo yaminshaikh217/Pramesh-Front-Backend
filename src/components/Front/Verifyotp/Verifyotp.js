@@ -224,11 +224,11 @@ const Verifyotp = () => {
               Please Enter your OTP in field:
             </p>
             <div className="c-email__code code-container">
-              <input id="otpdata0" type="number" class="code" min="0" max="9" />
-              <input id="otpdata1" type="number" class="code" min="0" max="9" />
-              <input id="otpdata2" type="number" class="code" min="0" max="9" />
-              <input id="otpdata3" type="number" class="code" min="0" max="9" />
-              <input id="otpdata4" type="number" class="code" min="0" max="9" />
+              <input id="otpdata0" type="number" className="code" min="0" max="9" />
+              <input id="otpdata1" type="number" className="code" min="0" max="9" />
+              <input id="otpdata2" type="number" className="code" min="0" max="9" />
+              <input id="otpdata3" type="number" className="code" min="0" max="9" />
+              <input id="otpdata4" type="number" className="code" min="0" max="9" />
               {/* <input type="text"    className="c-email__code__text" /> */}
             </div>
             <p className="c-email__content__text text-title ">

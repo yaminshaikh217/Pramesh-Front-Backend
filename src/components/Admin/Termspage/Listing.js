@@ -109,7 +109,7 @@ class Listing extends React.Component {
         <Sidebar />
         <div className="main-content" id="panel">
           <Header />
-          <div class="container-fluid">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-xl-12 col-md-12 col-sm-12">
                 <div className="card">
@@ -130,7 +130,7 @@ class Listing extends React.Component {
                         </Link>
                         <button
                           id={`${Terms.iTermsPage}`}
-                          class="btn myBtn2"
+                          className="btn myBtn2"
                           onClick={this.deletedata}
                         >
                           Delete

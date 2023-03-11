@@ -145,7 +145,7 @@ const SecondePage = () => {
                                                 <div className="col-lg-4">
                                                     <div className="form-group">
                                                         <label className="form-control-label" for="vDescription">Description</label>
-                                                        <textarea name="tDesc1" onChange={(e) => setTitle1(e.target.value)} id="vDescription" rows="4" class="form-control" placeholder="Description..."></textarea>
+                                                        <textarea name="tDesc1" onChange={(e) => setTitle1(e.target.value)} id="vDescription" rows="4" className="form-control" placeholder="Description..."></textarea>
                                                         <span className="red">{Title1_e}</span>
                                                     </div>
                                                 </div>
@@ -169,7 +169,7 @@ const SecondePage = () => {
                                                 <div className="col-lg-4">
                                                     <div className="form-group">
                                                         <label className="form-control-label" for="vDescription">Description</label>
-                                                        <textarea name="tDesc2" onChange={(e) => setTitle1(e.target.value)} id="vDescription" rows="4" class="form-control" placeholder="Description..."></textarea>
+                                                        <textarea name="tDesc2" onChange={(e) => setTitle1(e.target.value)} id="vDescription" rows="4" className="form-control" placeholder="Description..."></textarea>
                                                         <span className="red">{Title1_e}</span>
                                                     </div>
                                                 </div>
@@ -188,7 +188,7 @@ const SecondePage = () => {
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
                                                         <label className="form-control-label" for="vDescription">Description</label>
-                                                        <textarea onChange={(e) => setTitle7(e.target.value)} name="tDesc3" id="vDescription" rows="4" class="form-control" placeholder="Description..."></textarea>
+                                                        <textarea onChange={(e) => setTitle7(e.target.value)} name="tDesc3" id="vDescription" rows="4" className="form-control" placeholder="Description..."></textarea>
                                                         <span className="red">{Title7_e}</span>
                                                     </div>
                                                 </div>

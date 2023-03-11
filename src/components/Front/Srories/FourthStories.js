@@ -62,23 +62,23 @@ const FourthStories = () => {
               <div className="sec_img_div">
                 <div
                   id="carouselExampleControls1"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider1.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider2.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider3.jpg"}
                         className="fourthstories_img"
@@ -86,28 +86,28 @@ const FourthStories = () => {
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#carouselExampleControls1"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#carouselExampleControls1"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>
@@ -147,23 +147,23 @@ const FourthStories = () => {
               <div className="sec_img_div">
                 <div
                   id="carouselExampleControls2"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider4.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider5.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider6.jpg"}
                         className="fourthstories_img"
@@ -171,28 +171,28 @@ const FourthStories = () => {
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#carouselExampleControls2"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#carouselExampleControls2"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>
@@ -253,23 +253,23 @@ const FourthStories = () => {
               <div className="sec_img_div">
                 <div
                   id="carouselExampleControls3"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider7.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider8.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider9.jpg"}
                         className="fourthstories_img"
@@ -277,28 +277,28 @@ const FourthStories = () => {
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#carouselExampleControls3"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#carouselExampleControls3"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>
@@ -337,23 +337,23 @@ const FourthStories = () => {
               <div className="sec_img_div">
                 <div
                   id="carouselExampleControls4"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider1.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider3.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider5.jpg"}
                         className="fourthstories_img"
@@ -361,28 +361,28 @@ const FourthStories = () => {
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#carouselExampleControls4"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#carouselExampleControls4"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>
@@ -445,23 +445,23 @@ const FourthStories = () => {
               <div className="sec_img_div">
                 <div
                   id="carouselExampleControls5"
-                  class="carousel slide"
+                  className="carousel slide"
                   data-ride="carousel"
                 >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider2.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider8.jpg"}
                         className="fourthstories_img"
                       />
                     </div>
-                    <div class="carousel-item">
+                    <div className="carousel-item">
                       <img
                         src={process.env.PUBLIC_URL + "/Stories/mSlider6.jpg"}
                         className="fourthstories_img"
@@ -469,28 +469,28 @@ const FourthStories = () => {
                     </div>
                   </div>
                   <a
-                    class="carousel-control-prev"
+                    className="carousel-control-prev"
                     href="#carouselExampleControls5"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      class="carousel-control-prev-icon"
+                      className="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Previous</span>
+                    <span className="sr-only">Previous</span>
                   </a>
                   <a
-                    class="carousel-control-next"
+                    className="carousel-control-next"
                     href="#carouselExampleControls5"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      class="carousel-control-next-icon"
+                      className="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span class="sr-only">Next</span>
+                    <span className="sr-only">Next</span>
                   </a>
                 </div>
               </div>

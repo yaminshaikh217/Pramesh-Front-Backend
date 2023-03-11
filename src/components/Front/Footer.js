@@ -134,9 +134,9 @@ const Footer = () => {
                     />
                     <span className="red">{ErrorEmail}</span>
                     <br></br>
-                    <button className="footerBtn" onClick={newsletter} >SUBSCRIBE   <i class="fa fa-caret-right" aria-hidden="true"></i></button>
+                    <button className="footerBtn" onClick={newsletter} >SUBSCRIBE   <i className="fa fa-caret-right" aria-hidden="true"></i></button>
                     {/* <label htmlFor="email">
-                        SUBSCRIBE <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        SUBSCRIBE <i className="fa fa-caret-right" aria-hidden="true"></i>
                     </label> */}
                 </div>
 
@@ -163,16 +163,16 @@ const Footer = () => {
                     <h1>FOLLOW US</h1>
                     <div className="iconss">
                         <span>
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i className="fa fa-facebook" aria-hidden="true"></i>
                         </span>
                         <span>
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <i className="fa fa-instagram" aria-hidden="true"></i>
                         </span>
                         <span>
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <i className="fa fa-twitter" aria-hidden="true"></i>
                         </span>
                         <span>
-                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            <i className="fa fa-pinterest-p" aria-hidden="true"></i>
                         </span>
                     </div>
                 </div>

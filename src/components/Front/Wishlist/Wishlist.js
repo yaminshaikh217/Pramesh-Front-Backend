@@ -46,16 +46,16 @@ const Wishlist = () => {
 
             <div className="wishNav" onClick={myFunction}>
                 <li className="link active" onClick={link_1}>
-                    SETTINGS <i class="fas fa-user-cog"></i>
+                    SETTINGS <i className="fas fa-user-cog"></i>
                 </li>
                 <li className="link" onClick={link_2}>
-                    MY ORDERS <i class="fas fa-cart-arrow-down"></i>
+                    MY ORDERS <i className="fas fa-cart-arrow-down"></i>
                 </li>
                 <li className="link" onClick={link_3}>
-                    WISHLIST <i class="fas fa-heart"></i>
+                    WISHLIST <i className="fas fa-heart"></i>
                 </li>
                 <li className="link" onClick={link_4}>
-                    ADDRESS <i class="fas fa-location-arrow"></i>
+                    ADDRESS <i className="fas fa-location-arrow"></i>
                 </li>
             </div>
 

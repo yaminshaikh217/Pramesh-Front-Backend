@@ -312,7 +312,7 @@ const Banner_edit = () => {
                               onChange={(e) => setDesc(e.target.value)}
                               id="vDescription"
                               rows="4"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Description..."
                               value={Desc}
                             ></textarea>
