@@ -630,5 +630,5 @@ footer.footer {
 .btn.disabled {
   user-select: none !important;
   pointer-events: none !important;
-  
+
 }
